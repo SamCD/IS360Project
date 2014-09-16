@@ -1,0 +1,26 @@
+#Att1
+ulist <- function(x) {
+  c(Min=(sort(x)[1]),
+    Max=(-(sort(-x)[1])),
+    Mean=(sum(x)/length(x)),
+    Median = ((sort(x)[floor(length(x) / 2)]) + (sort(x)[ceiling(length() / 2)])) / 2)
+    QOne=(x)[floor((length(x) + 1) / 2)
+    QThree = (x)[ceiling(3 * ((length(x) + 1) / 2))],
+    SD=sqrt((sum((x - (sum(x) / length(x))) ^ 2)) / (length(x) - 1)),
+    No.Miss=sum(is.na(x))
+    names(x) <- c("Min", "Max", "Mean", "Median", "QOne", "QThree", "SD", "No.Miss")
+    print(x)
+}
+
+#Att2
+ulist <- function(x)
+{
+  do.call((sort(x)[1]), args = list(x))
+  do.call((-(sort(-x)[1])), args = list(x))
+  do.call((sum(x)/length(x)), args = list(x))
+  do.call((x)[floor((length(x) + 1) / 2), args = list(x))
+  do.call((x)[ceiling(3 * ((length(x) + 1) / 2))], args = list(x))
+  do.call(sqrt((sum((x - (sum(x) / length(x))) ^ 2)) / (length(x) - 1)))
+  do.call(sum(is.na(x)), args = list(x))
+  names(x) <- c("Min", "Max", "Mean", "Median", "QOne", "QThree", "SD", "No.Miss"))
+}
