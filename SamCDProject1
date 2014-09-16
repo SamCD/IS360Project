@@ -1,0 +1,56 @@
+s <- runif(10, 1, 50)
+countS <- function(x) {
+  sum(!is.na(x) + sum(is.na(x)))
+}
+#Min
+Smallest <- function(x) {
+  sort(x)[1]
+}
+Smallest(s)
+#Max
+Largest <- function(x) {
+  -(sort(-x)[1])
+}
+Largest(s)
+#Mean
+Avg <- function(x) {
+  sum(x)/countS(x)
+}
+Avg(s)
+#Median
+Med <- function(x) {
+  ((sort(x)[floor(countS(x)/2)]) + (sort(x)[ceiling(countS(s)/2)])) / 2
+}
+Med(s)
+#1stQ
+FirstQ <- function(x) {
+  vect <- sort(x)[1:(floor(countS(x)/2))]
+  Med(vect)
+}
+FirstQ(s)
+#3rdQ
+ThirdQ <- function(x) {
+  vect <- -(sort(-x))[1:(floor(countS(x)/2))]
+  Med(vect)
+}
+ThirdQ(s)
+#StandardDeviation
+StDev <- function(x) {
+  sqrt((sum((x - Avg(x)) ^ 2)) / (countS(x) - 1))
+}
+StDev(s)
+#MissingValues
+Missing <- function(x) {
+  sum(is.na(x))
+}
+#List
+Min <- Smallest(s)
+Max <- Largest(s)
+Mean <- Avg(s)
+Median <- Med(s)
+QOne <- FirstQ(s)
+QThree <- ThirdQ(s)
+SD <- StDev(s)
+No.Miss <- Missing(s)
+ulist <- list(Min=Min,Max=Max,Mean=Mean,Median=Median,QOne=QOne,QThree=QThree,SD=SD,No.Miss=No.Miss)
+ulist
